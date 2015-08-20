@@ -128,6 +128,39 @@ export function find(iterable, predicate, context) {
 }
 
 /**
+ * Reverse the array passed to it.
+ * @param {array} iterable - the array to be reversed.
+ */
+export function reverse(iterable) {
+  if (iterable) {
+    const result = [];
+    for (let index = iterable.length - 1; index >= 0; index--) {
+      result.push(iterable[index]);
+    }
+    return result;
+  }
+}
+
+/**
+ * Shifts given array by given number of positions.
+ * @param {array} iterable - the array to be shifted.
+ * @param {array} positions - number of positions shifting is needed.
+ */
+export function shift(iterable, positions) {
+  if (iterable) {
+    if (positions && positions > 0) {
+      const result = [];
+      const arrayLength = iterable.length;
+      for (let index = 0; index < iterable.length; index++) {
+        result.push(iterable[(index + positions) % arrayLength]);
+      }
+      return result;
+    }
+    return iterable;
+  }
+}
+
+/**
  * Returns true if object contains no values (no enumerable own-properties).
  *
  * @param {array} iterable - an iterable object
